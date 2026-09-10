@@ -1,5 +1,6 @@
-package com.ceos24.spring_boot;
+package com.ceos24.spring_boot.test;
 
+import com.ceos24.spring_boot.test.dto.response.TestNameResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,7 +15,7 @@ public class TestService {
 
     /* Read All*/
     @Transactional(readOnly = true)
-    public List<Test> findAllTests() {
-        return testRepository.findAll();
+    public TestNameResponse findAllTests() {
+        return TestNameResponse.from(testRepository.findAll());
     }
 }

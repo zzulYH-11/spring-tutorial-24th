@@ -1,5 +1,6 @@
-package com.ceos24.spring_boot;
+package com.ceos24.spring_boot.test;
 
+import com.ceos24.spring_boot.test.dto.response.TestNameResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +16,7 @@ public class TestController {
     private final TestService testService;
 
     @GetMapping
-    public List<Test> findAllTests() {
+    public TestNameResponse findAllTests() {
         return testService.findAllTests();
     }
 }
