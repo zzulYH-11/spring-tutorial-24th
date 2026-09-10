@@ -17,7 +17,7 @@ public class HelloControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    @DisplayName("HellowController의 hello() 메서드 테스트")
+    @DisplayName("HelloController의 hello() 메서드 테스트")
     @Test
     public void getHello() throws Exception{
         mvc.perform(get("/"))
