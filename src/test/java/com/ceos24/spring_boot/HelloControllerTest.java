@@ -8,6 +8,7 @@ import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -22,9 +23,6 @@ public class HelloControllerTest {
     public void getHello() throws Exception{
         mvc.perform(get("/"))
                 .andExpect(status().isOk())
-                .andExpect(result -> {
-                    String response = result.getResponse().getContentAsString();
-                    assert response.equals("Hello, Spring Boot!");
-                });
+                .andExpect(content().string("Hello, Spring Boot!"));
     }
 }
